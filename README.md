@@ -67,6 +67,8 @@ y = np.array(y)
 plt.scatter(x,y)
 
 ```
+![2_1](https://user-images.githubusercontent.com/103362219/192523354-b128497e-690b-4e1f-94a0-8b8fb9460bab.png)
+
 
 2. Функция модели: определяет модель линейной регрессии wx+b. Функция потерь: функция потерь среднеквадратичной ошибки. Функция оптимизации: метод градиентного спуска для нахождения частных производных w и b.
 
@@ -92,6 +94,8 @@ def iterate(a, b, x, y, times):
         a, b = optimize(a, b, x, y)
     return a, b
 ```
+![2_2](https://user-images.githubusercontent.com/103362219/192523417-4ee5b4d5-9eaa-4585-86c3-e0482d37facb.png)
+
 3. Начать итерацию
 
 Шаг 1. нициализация и модель итерактивной оптимизации
@@ -109,6 +113,8 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
+![2_3](https://user-images.githubusercontent.com/103362219/192523477-53488c0d-1a20-4e30-9440-d55fc67f0b76.png)
+
 Шаг 2. На второй итерации отображаются значения параметров, значения потерь и эффекты визуализации после итерации
 ```py
 a, b = iterate(a, b, x, y, 2)
@@ -118,6 +124,8 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
+![2_4](https://user-images.githubusercontent.com/103362219/192523511-316b9558-b41e-4598-893e-479591078958.png)
+
 Шаг 3. Третья итерация показывает значения параметров, значения потерь и эффекты визуализации после итерации
 ```py
 a, b = iterate(a, b, x, y, 3)
@@ -127,6 +135,8 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
+![2_5](https://user-images.githubusercontent.com/103362219/192523553-f994400b-c15d-47f5-a823-cdd1e414a222.png)
+
 Шаг 4. На четвертой итерации отображаются значения параметров, значения потерь и эффекты визуализации
 ```py
 a, b = iterate(a, b, x, y, 4)
@@ -136,6 +146,8 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
+![2_6](https://user-images.githubusercontent.com/103362219/192523590-b97127e3-2a49-48a6-bf3a-7280d3cb4041.png)
+
 Шаг 5. Пятая итерация показывает значения параметров, значения потерь и эффекты визуализации после итерации
 ```py
 a, b = iterate(a, b, x, y, 5)
@@ -145,6 +157,8 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
+![2_7](https://user-images.githubusercontent.com/103362219/192523652-a88eb7f4-6ce7-4ca4-bb56-0a223de7b6a0.png)
+
 Шаг 6. 10000-я итерация, показывающая значения параметров, потери и визуализацию после итерации
 ```py
 a, b = iterate(a, b, x, y, 10000)
@@ -154,6 +168,8 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
+![2_8](https://user-images.githubusercontent.com/103362219/192523687-9089addd-b15a-427c-89fb-41739a1bb0c6.png)
+
 
 
 ## Задание 3
