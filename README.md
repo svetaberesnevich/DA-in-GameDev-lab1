@@ -40,10 +40,14 @@
 ## Задание 1
 ### Написать программы Hello World на Python и Unity.
 - Для Python в отчете привести скриншоты с демонстрацией сохранения документа google.colab на свой диск с запуском программы, выводящей сообщение Hello World.
-- ![GoogleCollabe](https://user-images.githubusercontent.com/103362219/192449521-7a9d9cbf-9c8c-419d-8ab6-6f2952fd045a.png)
-- ![Диск](https://user-images.githubusercontent.com/103362219/192449660-553da15f-d5fa-456a-b4e5-06a3de686887.png)
+
+ ![GoogleCollabe](https://user-images.githubusercontent.com/103362219/192449521-7a9d9cbf-9c8c-419d-8ab6-6f2952fd045a.png)
+ 
+ ![Диск](https://user-images.githubusercontent.com/103362219/192449660-553da15f-d5fa-456a-b4e5-06a3de686887.png)
+ 
 - Для Unity в отчете привести скриншоты вывода сообщения Hello World в консоль.
-- ![UnityHelloWorld](https://user-images.githubusercontent.com/103362219/192449702-89f297d9-abda-448f-9eeb-9d1246a7b736.png)
+- 
+ ![UnityHelloWorld](https://user-images.githubusercontent.com/103362219/192449702-89f297d9-abda-448f-9eeb-9d1246a7b736.png)
 
 Ход работы:
 - Произвести подготовку данных для работы с алгоритмом линейной регрессии. 10 видов данных были установлены случайным образом, и данные находились в линейной зависимости. Данные преобразуются в формат массива, чтобы их можно было вычислить напрямую при использовании умножения и сложения.
