@@ -104,6 +104,7 @@ def iterate(a, b, x, y, times):
 return a, b
 ```
 3. Начать итерацию
+
 Шаг 1. нициализация и модель итерактивной оптимизации
 ```py
 a = np. random. rand(1)
@@ -131,6 +132,33 @@ plt.plot(x,prediction)
 Шаг 3. Третья итерация показывает значения параметров, значения потерь и эффекты визуализации после итерации
 ```py
 a,b = iterate(a,b,x,y,3)
+prediction=model(a,b,x)
+loss = loss_function(a,b,x,y)
+print(a,b,loss)
+plt.scatter(x,y)
+plt.plot(x,prediction)
+```
+Шаг 4. На четвертой итерации отображаются значения параметров, значения потерь и эффекты визуализации
+```py
+a,b = iterate(a,b,x,y,4)
+prediction=model(a,b,x)
+loss = loss_function(a,b,x,y)
+print(a,b,loss)
+plt.scatter(x,y)
+plt.plot(x,prediction)
+```
+Шаг 5. Пятая итерация показывает значения параметров, значения потерь и эффекты визуализации после итерации
+```py
+a,b = iterate(a,b,x,y,5)
+prediction=model(a,b,x)
+loss = loss_function(a,b,x,y)
+print(a,b,loss)
+plt.scatter(x,y)
+plt.plot(x,prediction)
+```
+Шаг 6. 10000-я итерация, показывающая значения параметров, потери и визуализацию после итерации
+```py
+a,b = iterate(a,b,x,y,10000)
 prediction=model(a,b,x)
 loss = loss_function(a,b,x,y)
 print(a,b,loss)
