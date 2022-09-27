@@ -75,9 +75,68 @@ plt.scatter(x,y)
 
 2. Определите связанные функции. Функция модели: определяет модель линейной регрессии wx+b. Функция потерь: функция потерь среднеквадратичной ошибки. Функция оптимизации: метод градиентного спуска для нахождения частных производных w и b.
 
-'''py
+```py
 #The basic linear regression model is wx+ b, and since this is a two-dimensional space, the model is as+ b
-'''
+
+def model(a,b,x):
+return a*x+b
+
+#Tahe most commonly used loss function of linear regression model is the loss function of mean variance difference
+def loss_function(a,b,x,y):
+    num = len(x)
+    prediction=model(a,b,x)
+    return (0.5/num) * (np.square(prediction-y)).sum()
+    
+#The optimization function mainly USES partial derivatives to update two parameters a and b
+def optimize(a,b,x,y):
+    num = len(x)
+    prediction = model(a,b,x)
+function on a and b
+    da = (1,0 /number) * ((prediction - y) * x). amount()
+    db = (1.0 / number) * ((forecast - y). sum())
+    a = a - Lr * da
+    b = b - Lr * db
+    return a, b   
+    
+def iterate(a, b, x, y, times):
+    for i in the range (time):
+        a, b = optimize(a, b, x, y)
+return a, b
+```
+3. Начать итерацию
+Шаг 1. нициализация и модель итерактивной оптимизации
+```py
+a = np. random. rand(1)
+print(a)
+b = np. random. rand(1)
+print(b)
+Lr = 0,000001
+ 
+a, b = iteration(a, b, x, y, 1)
+prediction = model(a, b, x))
+loss = loss_function(a, b, x, y)
+print(a, b, loss)
+plt. scattering(x, y)
+plot. graph(x, prediction)
+```
+Шаг 2. На второй итерации отображаются значения параметров, значения потерь и эффекты визуализации после итерации
+```py
+a,b = iterate(a,b,x,y,2)
+prediction=model(a,b,x)
+loss = loss_function(a,b,x,y)
+print(a,b,loss)
+plt.scatter(x,y)
+plt.plot(x,prediction)
+```
+Шаг 3. Третья итерация показывает значения параметров, значения потерь и эффекты визуализации после итерации
+```py
+a,b = iterate(a,b,x,y,3)
+prediction=model(a,b,x)
+loss = loss_function(a,b,x,y)
+print(a,b,loss)
+plt.scatter(x,y)
+plt.plot(x,prediction)
+```
 
 
 ## Задание 3
