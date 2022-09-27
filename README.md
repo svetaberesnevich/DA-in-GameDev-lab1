@@ -95,7 +95,6 @@ def iterate(a, b, x, y, times):
     return a, b
 ```
 ![2_2](https://user-images.githubusercontent.com/103362219/192523417-4ee5b4d5-9eaa-4585-86c3-e0482d37facb.png)
-
 3. Начать итерацию
 
   Шаг 1. Инициализация и модель итерактивной оптимизации
