@@ -182,6 +182,10 @@ plt. plot(x, prediction)
 ![2_12](https://user-images.githubusercontent.com/103362219/192588688-e404dbae-4904-40e9-a289-0e3b4711e561.png)
 
 ### Должна ли величина loss стремиться к нулю при изменении исходных данных? 
+Нет, не должна, это видно по построенному графику:
+
+![LOSS1](https://user-images.githubusercontent.com/103362219/192590834-619814f1-e08c-4dc3-9d11-e4ff307e3a14.png)
+![LOSS2](https://user-images.githubusercontent.com/103362219/192590847-fa9f424f-750a-4442-b683-1f2183bde3be.png)
 
 ## Выводы
 
