@@ -173,6 +173,11 @@ plt. plot(x, prediction)
 
 ## Задание 3
 ### Какова роль параметра Lr? 
+Параметр Lr определяет, как резко будет возрастать, либо же убывать график в зависимости от его значения.
+![2_9](https://user-images.githubusercontent.com/103362219/192588607-f6caee8e-c547-49da-986d-ee24dc3ef9c0.png)
+![2_10](https://user-images.githubusercontent.com/103362219/192588636-f875088a-ebf6-4fe8-a1d4-cc32697d82dc.png)
+![2_11](https://user-images.githubusercontent.com/103362219/192588656-6d9de998-437f-4c06-8793-578aaa7a3612.png)
+![2_12](https://user-images.githubusercontent.com/103362219/192588688-e404dbae-4904-40e9-a289-0e3b4711e561.png)
 
 ### Должна ли величина loss стремиться к нулю при изменении исходных данных? 
 
