@@ -46,7 +46,7 @@
  ![Диск](https://user-images.githubusercontent.com/103362219/192449660-553da15f-d5fa-456a-b4e5-06a3de686887.png)
  
 - Для Unity в отчете привести скриншоты вывода сообщения Hello World в консоль.
-- 
+ 
  ![UnityHelloWorld](https://user-images.githubusercontent.com/103362219/192449702-89f297d9-abda-448f-9eeb-9d1246a7b736.png)
 
 Ход работы:
