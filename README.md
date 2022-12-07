@@ -138,7 +138,7 @@ sh.sheet1.update(('B' + str(i)), str(tempInf))
 print(tempInf)
 ```
 
-![123](https://user-images.githubusercontent.com/103362219/195166193-f79fd832-fa7b-418c-bde9-70b85b2ad304.png)
+![image](https://user-images.githubusercontent.com/120024952/206208071-47c0e2ed-061a-46a6-a3bf-c34903c9f0c2.png)
 
 ## Задание 3
 ### Самостоятельно разработать сценарий воспроизведения звукового
