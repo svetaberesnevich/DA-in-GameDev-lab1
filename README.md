@@ -17,13 +17,6 @@
 - к.э.н., доцент Панов М.А.
 - ст. преп., Фадеев В.О.
 
-знак "*" - задание выполнено; знак "#" - задание не выполнено;
-
-Работу проверили:
-- к.т.н., доцент Денисов Д.В.
-- к.э.н., доцент Панов М.А.
-- ст. преп., Фадеев В.О.
-
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
@@ -201,7 +194,7 @@ Debug.Log(dataSet["Mon_1"]);
 В ходе проделанной работы я поработал на нескольких языках программирования, поработал на Unity со звуком, ещё понравились фразы из Stronghold Crusader!
 
 | Plugin | README |
-| —--— | —--— |
+| ------ | ------ |
 | Dropbox | [plugins/dropbox/README.md][PlDb] |
 | GitHub | [plugins/github/README.md][PlGh] |
 | Google Drive | [plugins/googledrive/README.md][PlGd] |
