@@ -48,7 +48,7 @@ sheets и google drive.
 
 ![1](https://user-images.githubusercontent.com/120024952/206184903-e1aabc92-9845-4098-bf4a-c7bb89580b15.png)
 ![image](https://user-images.githubusercontent.com/120024952/206206595-5e0dbdc0-83c8-4f85-87dc-223be0bf846d.png)
-![3](https://user-images.githubusercontent.com/103362219/195162711-538c5723-ddf7-4849-b7e7-d7d58c9a1293.png)
+![image](https://user-images.githubusercontent.com/120024952/206206819-3372182c-6a51-4d7b-bb22-89cb68f1eadb.png)
 ![4](https://user-images.githubusercontent.com/103362219/195162747-722cba6c-5def-4567-be2b-5874d20b82c1.png)
 
 - Реализовать запись данных из скрипта на python в google-таблицу. Данные
