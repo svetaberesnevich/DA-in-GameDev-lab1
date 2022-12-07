@@ -39,20 +39,20 @@
 
 ## Задание 1
 ### Реализовать систему машинного обучения в связке Python - Google-Sheets – Unity.
-- Создал новый пустой 3D проект на Unity.
+- Создала новый пустой 3D проект на Unity.
 ![1](https://user-images.githubusercontent.com/103362219/198036078-d7bc4fa1-4166-43f3-bc49-2066cbd69eb2.png)
 
-- Скачал папку с ML агентом.
+- Скачала папку с ML агентом.
 ![2](https://user-images.githubusercontent.com/103362219/198037649-26ff0001-5c40-4250-9501-acd0ba0a22ef.png)
 
-- В созданный проект добавил ML Agent, выбрав Window - Package
+- В созданный проект добавила ML Agent, выбрав Window - Package
 Manager - Add Package from disk. Последовательно добавил .json –
 файлы:
 o ml-agents-release_19 / com,unity.ml-agents / package.json
 o ml-agents-release_19 / com,unity.ml-agents.extensions / package.json
 ![3](https://user-images.githubusercontent.com/103362219/198038456-d018bcb2-1b18-443f-a9f6-1f5307d6b013.png)
 
-- Запустил Anaconda Prompt для создания виртуальной среды и активации нового ML-агента, также скачал необходимые библиотеки:
+- Запустила Anaconda Prompt для создания виртуальной среды и активации нового ML-агента, также скачала необходимые библиотеки:
 o mlagents 0.28.0;
 o torch 1.7.1;
 
@@ -64,7 +64,7 @@ o torch 1.7.1;
 
 ![Снимок](https://user-images.githubusercontent.com/103362219/198043420-09afc11e-4396-4c1d-83bf-bbe3e7abe744.JPG)
 
-- Создал на сцене куб, сферу и пллоскость, потом я создал C# скрипт и подключил его к сфере. Добавил сфере компоненты Rigidbody, Decision Requester, Behavior Parameters и настроил их.
+- Создала на сцене куб, сферу и пллоскость, потом я создала C# скрипт и подключила его к сфере. Добавила сфере компоненты Rigidbody, Decision Requester, Behavior Parameters и настроила их.
 C# скрипт:
 ```c#
 using System.Collections;
@@ -131,31 +131,31 @@ EndEpisode();
 
 ![Снимок экрана (87)](https://user-images.githubusercontent.com/103362219/198045770-564b5632-55cf-4af2-9a41-a6b2b406ecd9.png)
 
-- В корень проекта добавил файл конфигурации rollerball_config.yaml
+- В корень проекта добавила файл конфигурации rollerball_config.yaml
 
 код rollerball_config.yaml:
 ![image](https://user-images.githubusercontent.com/103362219/198048230-fcab8c91-d4ec-4dd8-b3d4-77263ab8c93b.png)
 
-- Вернулся в проект Unity, запустил сцену, проверил работу ML-Agent’a.
-- Сделал 3 копии модели «Плоскость-Сфера-Куб», запустил симуляцию сцены и наблюдал за обучением модели.
+- Вернулась в проект Unity, запустил сцену, проверил работу ML-Agent’a.
+- Сделала 3 копии модели «Плоскость-Сфера-Куб», запустила симуляцию сцены и наблюдала за обучением модели.
 
 ![image](https://user-images.githubusercontent.com/103362219/198066284-724455f0-b8d9-456e-b2d8-8d28b1dafbec.png)
 
 ![image](https://user-images.githubusercontent.com/103362219/198061363-3ac00231-2e27-41cc-8b50-a36aa505d37d.png)
 
-- Сделал 9 копий модели «Плоскость-Сфера-Куб», запустил симуляцию сцены и наблюдал за обучением модели.
+- Сделала 9 копий модели «Плоскость-Сфера-Куб», запустила симуляцию сцены и наблюдала за обучением модели.
 
 ![image](https://user-images.githubusercontent.com/103362219/198065700-475107cb-b018-48db-8f94-370ba373ce72.png)
 
 ![image](https://user-images.githubusercontent.com/103362219/198063056-c0d9e9e8-8a44-4696-9993-ab567b1361b1.png)
 
-- Сделал 27 копий модели «Плоскость-Сфера-Куб», запустил симуляцию сцены и наблюдал за обучением модели.
+- Сделала 27 копий модели «Плоскость-Сфера-Куб», запустила симуляцию сцены и наблюдал за обучением модели.
 
 ![image](https://user-images.githubusercontent.com/103362219/198064819-aaf578c5-e7c2-4f46-918b-fc78494e202f.png)
 
 ![image](https://user-images.githubusercontent.com/103362219/198066858-ecad9314-3d98-41a7-b91f-c26df223f558.png)
 
-- После завершения обучения проверил работу модели.
+- После завершения обучения проверила работу модели.
 
 ![Снимок](https://user-images.githubusercontent.com/103362219/198068765-10447176-6291-4c28-b8b0-961613ecac39.JPG)
 
