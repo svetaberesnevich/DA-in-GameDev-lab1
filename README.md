@@ -56,7 +56,7 @@ sheets и google drive.
 учётом стоимости игрового объекта в каждый период.
 
 ![5](https://user-images.githubusercontent.com/103362219/195162815-6874ff64-1458-494a-afbf-591e791f52c3.png)
-![6](https://user-images.githubusercontent.com/103362219/195162852-f40c2972-e1dc-4321-9d81-e28daf887b6c.png)
+![image](https://user-images.githubusercontent.com/120024952/206207445-c22eb39f-5eb6-4e6b-a59d-b7173d758658.png)
 
 - Создать новый проект на Unity, который будет получать данные из google-
 таблицы, в которую были записаны данные в предыдущем пункте.
