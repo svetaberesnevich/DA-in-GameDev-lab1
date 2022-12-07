@@ -1,11 +1,11 @@
 # АНАЛИЗ ДАННЫХ И ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ [in GameDev]
-Отчет по лабораторной работе №2 выполнил:
-- Берсенева Светлана Александровна
-- ФО-210005
+Отчет по лабораторной работе №3 выполнил:
+- Шамонин Филипп Николаевич
+- РИ-210941
 Отметка о выполнении заданий (заполняется студентом):
 
 | Задание | Выполнение | Баллы |
-| ------ | ------ | ------ |
+| —--— | —--— | —--— |
 | Задание 1 | * | 60 |
 | Задание 2 | * | 20 |
 | Задание 3 | * | 20 |
@@ -35,166 +35,213 @@
 - ✨Magic ✨
 
 ## Цель работы
-Познакомиться с программными средствами для организции
-передачи данных между инструментами google, Python и Unity.
+Познакомиться с программными средствами для создания системы машинного обучения и ее интеграции в Unity.
 
 ## Задание 1
-### Реализовать совместную работу и передачу данных в связке Python
-- Google-Sheets – Unity. При выполнении задания используйте видео-материалы и
-исходные данные, предоставленные преподавателя курса.
+### Реализовать систему машинного обучения в связке Python - Google-Sheets – Unity.
+- Создал новый пустой 3D проект на Unity.
+![1](https://user-images.githubusercontent.com/103362219/198036078-d7bc4fa1-4166-43f3-bc49-2066cbd69eb2.png)
 
-В облачном сервисе google console подключить API для работы с google
-sheets и google drive.
+- Скачал папку с ML агентом.
+![2](https://user-images.githubusercontent.com/103362219/198037649-26ff0001-5c40-4250-9501-acd0ba0a22ef.png)
 
-![1](https://user-images.githubusercontent.com/120024952/206184903-e1aabc92-9845-4098-bf4a-c7bb89580b15.png)
-![2](https://user-images.githubusercontent.com/103362219/195162681-04b40ed0-95a3-4670-91d9-c27e49e715ce.png)
-![3](https://user-images.githubusercontent.com/103362219/195162711-538c5723-ddf7-4849-b7e7-d7d58c9a1293.png)
-![4](https://user-images.githubusercontent.com/103362219/195162747-722cba6c-5def-4567-be2b-5874d20b82c1.png)
+- В созданный проект добавил ML Agent, выбрав Window - Package
+Manager - Add Package from disk. Последовательно добавил .json –
+файлы:
+o ml-agents-release_19 / com,unity.ml-agents / package.json
+o ml-agents-release_19 / com,unity.ml-agents.extensions / package.json
+![3](https://user-images.githubusercontent.com/103362219/198038456-d018bcb2-1b18-443f-a9f6-1f5307d6b013.png)
 
-- Реализовать запись данных из скрипта на python в google-таблицу. Данные
-описывают изменение темпа инфляции на протяжении 11 отсчётных периодов, с
-учётом стоимости игрового объекта в каждый период.
+- Запустил Anaconda Prompt для создания виртуальной среды и активации нового ML-агента, также скачал необходимые библиотеки:
+o mlagents 0.28.0;
+o torch 1.7.1;
 
-![5](https://user-images.githubusercontent.com/103362219/195162815-6874ff64-1458-494a-afbf-591e791f52c3.png)
-![6](https://user-images.githubusercontent.com/103362219/195162852-f40c2972-e1dc-4321-9d81-e28daf887b6c.png)
+![image](https://user-images.githubusercontent.com/103362219/198039669-9a15e86c-b656-4ab7-92f3-dd728f1ea70f.png)
 
-- Создать новый проект на Unity, который будет получать данные из google-
-таблицы, в которую были записаны данные в предыдущем пункте.
+![image](https://user-images.githubusercontent.com/103362219/198039830-1224fa23-0f23-4875-bec4-67ede56501cf.png)
 
-![7](https://user-images.githubusercontent.com/103362219/195162898-d30f18e5-17d1-4afa-9ead-55e78ccf36fe.png)
-![9](https://user-images.githubusercontent.com/103362219/195163013-8882c2f0-b7b7-4674-92f7-5e75259b847d.png)
+![image](https://user-images.githubusercontent.com/103362219/198040110-6729184d-232a-4d00-9b8c-1f8c9dc8cc6e.png)
 
-- Написать функционал на Unity, в котором будет воспризводиться аудио-
-файл в зависимости от значения данных из таблицы.
+![Снимок](https://user-images.githubusercontent.com/103362219/198043420-09afc11e-4396-4c1d-83bf-bbe3e7abe744.JPG)
 
-![8](https://user-images.githubusercontent.com/103362219/195162988-799fb8c1-03aa-4f61-aa61-96d922230454.png)
-![10](https://user-images.githubusercontent.com/103362219/195163046-cd7bfdfb-bcca-4581-b96a-074a833c09da.png)
+- Создал на сцене куб, сферу и пллоскость, потом я создал C# скрипт и подключил его к сфере. Добавил сфере компоненты Rigidbody, Decision Requester, Behavior Parameters и настроил их.
+C# скрипт:
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Unity.MLAgents;
+using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Actuators;
 
-## Задание 2
-### Реализовать запись в Google-таблицу набора данных, полученных
-### с помощью линейной регрессии из лабораторной работы № 1.
+public class RollerAgent : Agent
+{
+Rigidbody rBody;
+// Start is called before the first frame update
+void Start()
+{
+rBody = GetComponent<Rigidbody>();
+}
 
-```py
-import numpy as np
-import gspread
+public Transform Target;
+public override void OnEpisodeBegin()
+{
+if (this.transform.localPosition.y < 0)
+{
+this.rBody.angularVelocity = Vector3.zero;
+this.rBody.velocity = Vector3.zero;
+this.transform.localPosition = new Vector3(0, 0.5f, 0);
+}
 
-def model(a, b, x):
-return a*x+b
+Target.localPosition = new Vector3(Random.value * 8-4, 0.5f, Random.value * 8-4);
+}
+public override void CollectObservations(VectorSensor sensor)
+{
+sensor.AddObservation(Target.localPosition);
+sensor.AddObservation(this.transform.localPosition);
+sensor.AddObservation(rBody.velocity.x);
+sensor.AddObservation(rBody.velocity.z);
+}
+public float forceMultiplier = 10;
+public override void OnActionReceived(ActionBuffers actionBuffers)
+{
+Vector3 controlSignal = Vector3.zero;
+controlSignal.x = actionBuffers.ContinuousActions[0];
+controlSignal.z = actionBuffers.ContinuousActions[1];
+rBody.AddForce(controlSignal * forceMultiplier);
 
-def loss_function(a, b, x, y):
-num = len(x)
-prediction = model(a, b, x)
-return (0.5/num) * (np.square(prediction - y)).sum()
-
-def optimize(a, b, x, y):
-num = len(x)
-prediction = model(a, b, x)
-da = (1.0/num) * ((prediction - y)*x).sum()
-db = (1.0/num) * ((prediction - y).sum())
-a -= Lr*da
-b -= Lr*db
-return a, b
-
-def iterate(a, b, x, y, times):
-for i in range(times):
-a, b = optimize(a, b, x, y)
-return a, b
-
-a = np.random.rand(1)
-print(a)
-b = np.random.rand(1)
-print(b)
-Lr = 0.000001
-
-x = np.array([3, 21, 22, 34, 54, 34, 55, 67, 89, 99])
-y = np.array([2, 22, 24, 65, 79, 82, 55, 130, 150, 199])
-
-a, b = iterate(a, b, x, y, 100)
-prediction = model(a, b, x)
-loss = loss_function(a, b, x, y)
-print(a, b, loss)
-
-gc =
-Посмотреть все изображения
+float
 dillinger.svg?branch=master
 api.travis-ci.org
-gspread.service_account(filename='unitydatasciense-a4fb1bf44394.json')
-sh = gc.open("UnitySheets")
-price = np.random.randint(2000, 10000, 11)
-mon = list(range(1, 11))
-i = 0
-while i <= len(mon):
-i += 1
-if i == 0:
-continue
-else:
-a, b = iterate(a, b, x, y, 100)
-prediction = model(a, b, x)
-loss = loss_function(a, b, x, y)
-tempInf = str(loss)
-tempInf = tempInf.replace('.', ',')
-sh.sheet1.update(('A' + str(i)), str(i))
-sh.sheet1.update(('B' + str(i)), str(tempInf))
-print(tempInf)
+distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
+
+if(distanceToTarget < 1.42f)
+{
+SetReward(1.0f);
+EndEpisode();
+}
+else if (this.transform.localPosition.y < 0)
+{
+EndEpisode();
+}
+}
+}
+
 ```
 
-![123](https://user-images.githubusercontent.com/103362219/195166193-f79fd832-fa7b-418c-bde9-70b85b2ad304.png)
+![Снимок экрана (87)](https://user-images.githubusercontent.com/103362219/198045770-564b5632-55cf-4af2-9a41-a6b2b406ecd9.png)
+
+- В корень проекта добавил файл конфигурации rollerball_config.yaml
+
+код rollerball_config.yaml:
+![image](https://user-images.githubusercontent.com/103362219/198048230-fcab8c91-d4ec-4dd8-b3d4-77263ab8c93b.png)
+
+- Вернулся в проект Unity, запустил сцену, проверил работу ML-Agent’a.
+- Сделал 3 копии модели «Плоскость-Сфера-Куб», запустил симуляцию сцены и наблюдал за обучением модели.
+
+![image](https://user-images.githubusercontent.com/103362219/198066284-724455f0-b8d9-456e-b2d8-8d28b1dafbec.png)
+
+![image](https://user-images.githubusercontent.com/103362219/198061363-3ac00231-2e27-41cc-8b50-a36aa505d37d.png)
+
+- Сделал 9 копий модели «Плоскость-Сфера-Куб», запустил симуляцию сцены и наблюдал за обучением модели.
+
+![image](https://user-images.githubusercontent.com/103362219/198065700-475107cb-b018-48db-8f94-370ba373ce72.png)
+
+![image](https://user-images.githubusercontent.com/103362219/198063056-c0d9e9e8-8a44-4696-9993-ab567b1361b1.png)
+
+- Сделал 27 копий модели «Плоскость-Сфера-Куб», запустил симуляцию сцены и наблюдал за обучением модели.
+
+![image](https://user-images.githubusercontent.com/103362219/198064819-aaf578c5-e7c2-4f46-918b-fc78494e202f.png)
+
+![image](https://user-images.githubusercontent.com/103362219/198066858-ecad9314-3d98-41a7-b91f-c26df223f558.png)
+
+- После завершения обучения проверил работу модели.
+
+![Снимок](https://user-images.githubusercontent.com/103362219/198068765-10447176-6291-4c28-b8b0-961613ecac39.JPG)
+
+- **Выводы из задания №1: в ходе выполнения задания я смог успешно подключить ML-агент, обучить модель и протестировать её.**
+
+## Задание 2
+### Подробно описать каждую строку файла конфигурации нейронной сети. Самостоятельно найти информацию о компонентах Decision Requester, Behavior Parameters, добавленных на сфере.
+#### Описание каждой строки файла конфигурации нейронной сети.
+* содержимое файла конфигурации
+```yaml
+behaviors:
+RollerBall:
+trainer_type: ppo
+hyperparameters:
+batch_size: 10
+buffer_size: 100
+learning_rate: 3.0e-4
+beta: 5.0e-4
+epsilon: 0.2
+lambd: 0.99
+num_epoch: 3
+learning_rate_schedule: linear
+network_settings:
+normalize: false
+hidden_units: 128
+num_layers: 2
+reward_signals:
+extrinsic:
+gamma: 0.99
+strength: 1.0
+max_steps: 500000
+time_horizon: 64
+summary_freq: 10000
+```
+* ```trainer_type``` - (по умолчанию = ppo) Тип используемого тренера: ppo, sac, или poca.
+* ```hyperparameters```(гиперпараметры):
+* ```batch_size``` - количество опытов в каждой итерации градиентного спуска. Это всегда должно быть в несколько раз меньше, чемbuffer_size.
+* ```buffer_size``` - количество опытов, которые необходимо собрать перед обновлением модели политики. Соответствует тому, сколько опыта должно быть собрано, прежде чем мы будем изучать или обновлять модель.
+* ```learning_rate``` - начальная скорость обучения для градиентного спуска. Соответствует силе каждого шага обновления градиентного спуска. Обычно это значение следует уменьшать, если обучение нестабильно, а вознаграждение не увеличивается постоянно.
+* ```beta``` - сила регуляризации энтропии, которая делает политику «более случайной». Это гарантирует, что агенты должным образом исследуют пространство действия во время обучения. Увеличение этого параметра обеспечит выполнение большего количества случайных действий.
+* ```epsilon``` - влияет на скорость изменения политики во время обучения. Соответствует допустимому порогу расхождения между старой и новой политикой при обновлении градиентного спуска. Установка небольшого значения этого параметра приведет к более стабильным обновлениям, но также замедлит процесс обучения.
+* ```lambd``` - параметр регуляризации (лямбда), используемый при расчете обобщенной оценки преимущества ( GAE ). Это можно
+рассматривать как то, насколько агент полагается на свою текущую оценку стоимости при вычислении обновленной оценки стоимости.
+* ```num_epoch``` - количество проходов через буфер опыта при выполнении оптимизации градиентного спуска. Чем больше размер партии, тем больше это допустимо. Уменьшение этого параметра обеспечит более стабильные обновления за счет более медленного обучения.
+* ```learning_rate_schedule``` - определяет, как скорость обучения изменяется с течением времени. (**linear** скорость обучения уменьшается линейно, достигая 0 на max_steps, сохраняя при этом constant скорость обучения постоянной для всего тренировочного прогона.)
+* ```network_settings```(сетевые настройки):
+* ```normalize``` - (по умолчанию = false) Применяется ли нормализация к входным данным векторных наблюдений. Эта нормализация основана на скользящем среднем и дисперсии векторного наблюдения. Нормализация может быть полезна в случаях со сложными задачами непрерывного управления, но может быть вредна для более простых задач дискретного управления.
+* ```hidden_units``` - (по умолчанию = 128) Количество единиц в скрытых слоях нейронной сети. Соответствуют количеству единиц в каждом полносвязном слое нейронной сети. Для простых задач, где правильное действие представляет собой простую комбинацию входных данных наблюдения, это значение должно быть небольшим. Для задач, где действие представляет собой очень сложное взаимодействие между переменными наблюдения, это значение должно быть больше.
+* ```num_layers``` - (по умолчанию = 2) Количество скрытых слоев в нейронной сети. Соответствует количеству скрытых слоев после ввода наблюдения или после кодирования CNN визуального наблюдения. Для простых задач меньше слоев, скорее всего, будут обучать быстрее и эффективнее. Для более сложных задач управления может потребоваться больше слоев.
+* ```reward_signals``` - позволяет задавать настройки как для внешних (т. е. основанных на среде), так и для внутренних сигналов вознаграждения.
+* ```extrinsic``` - настройки для внешних.
+* ```gamma``` - (по умолчанию = 0.99) Фактор скидки для будущих вознаграждений, поступающих из окружающей среды. Это можно рассматривать как то, как далеко в будущем агент должен заботиться о возможных вознаграждениях. В ситуациях, когда агент должен действовать в настоящем, чтобы подготовиться к вознаграждению в отдаленном будущем, это значение должно быть большим.
+* ```strength``` - (по умолчанию = 1.0) Коэффициент, на который умножается вознаграждение, данное средой. Типичные диапазоны будут варьироваться в зависимости от сигнала вознаграждения.
+* ```max_steps``` - Общее количество шагов (т. е. собранных наблюдений и предпринятых действий), которые необходимо выполнить в среде (или во всех средах при параллельном использовании нескольких) перед завершением процесса обучения.
+* ```time_horizon``` - (по умолчанию = 64) Сколько шагов опыта необходимо собрать для каждого агента, прежде чем добавить его в буфер опыта. Когда этот предел достигается до конца эпизода, оценка значения используется для прогнозирования общего ожидаемого вознаграждения из текущего состояния агента. Таким образом, этот параметр является компромиссом между менее предвзятой, но более высокой оценкой дисперсии.
+* ```summary_freq``` - Количество опытов, которое необходимо собрать перед созданием и отображением статистики обучения. Это определяет детализацию графиков в Tensorboard.
+
+#### Информация о компонентах, добавленных на сфере.
+**DecisionRequester** - компонент, который автоматически запрашивает решения для экземпляра агента через регулярные промежутки времени. Должен быть прикреплён к тому же [GameObject], что и компонент Agent. Компонент DecisionRequester предоставляет удобный и гибкий способ запуска процесса принятия решения агентом. Без DecisionRequester реализация вашего агента должна вручную вызывать функцию **RequestDecision()**.
+
+**BehaviorParameters** - компонент для настройки поведения экземпляра агента и свойств мозга. Во время выполнения этот компонент генерирует объекты политики агента в соответствии с настройками,
+указанными в редакторе.
+
+Ссылка на документацию ml-агента - https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Training-Configuration-File.md
 
 ## Задание 3
-### Самостоятельно разработать сценарий воспроизведения звукового
-### сопровождения в Unity в зависимости от изменения считанных данных в задании 2.
+### Доработать сцену и обучить ML-Agent таким образом, чтобы шар перемещался между двумя кубами разного цвета.
 
-Поменял значения + в инумераторе поменял индекс
+Шар поочерёдно двигается то к первому, то ко второму кубу.
 
-```py
-void Update()
-{
-if (dataSet.Count == 0 || dataSet.Count <= i)
-{
-return;
-}
+![image](https://user-images.githubusercontent.com/103362219/198078401-8d936499-d93c-41df-9424-38029fbfd2a4.png)
 
-if (dataSet["Mon_" + i.ToString()] <= 300 & statusStart == false & 1 != dataSet.Count)
-{
-StartCoroutine(PlaySelectAudioGood());
-Debug.Log(dataSet["Mon_" + i.ToString()]);
-}
-
-if (dataSet["Mon_" + i.ToString()] > 300 & dataSet["Mon_" + i.ToString()] < 2000 & statusStart == false & 1 != dataSet.Count)
-{
-StartCoroutine(PlaySelectAudioNormal());
-Debug.Log(dataSet["Mon_" + i.ToString()]);
-}
-
-if (dataSet["Mon_" + i.ToString()] >= 2000 & statusStart == false & 1 != dataSet.Count)
-{
-StartCoroutine(PlaySelectAudioBad());
-Debug.Log(dataSet["Mon_" + i.ToString()]);
-}
-}
-
-IEnumerator GoogleSheets()
-{
-UnityWebRequest curentResp = UnityWebRequest.Get("https://sheets.googleapis.com/v4/spreadsheets/1LDnPyXaw05hTaRFvyQBFkONYLwtXJekyl-OzIOrYkdE/values/Лист1?key=AIzaSyDaCFe6mtKBhf9fSBc-1z8eaYQhT785igE");
-yield return curentResp.SendWebRequest();
-string rawResp = curentResp.downloadHandler.text;
-var rawJson = JSON.Parse(rawResp);
-foreach (var itemRawJson in rawJson["values"])
-{
-var parseJson = JSON.Parse(itemRawJson.ToString());
-var selectRow = parseJson[0].AsStringList;
-dataSet.Add(("Mon_" + selectRow[0]), float.Parse(selectRow[1]));
-}
-Debug.Log(dataSet["Mon_1"]);
-}
-```
-![End](https://user-images.githubusercontent.com/103362219/195169883-f0502e32-f2c5-4e2e-81b3-730794a778df.png)
+![image](https://user-images.githubusercontent.com/103362219/198078747-72f8b555-263a-45a9-ab3a-037a66c87a8e.png)
 
 ## Выводы
-В ходе проделанной работы я поработала на нескольких языках программирования, поработала на Unity со звуком.
+
+В ходе проделанной работы я познакомился с программными средствами для создания системы машинного обучения и ее интеграции в Unity. Я смог реализовать систему машинного обучения ml-agent'a.
+
+Игровой баланс в играх - равновесие между персонажами, командами, тактиками игры и другими игровыми объектами; одно из требований к честности правил.
+
+Системы машинного обучения могут быть использованы для того, чтобы скорректировать игровой баланс. Например их можно внедрить для ИИ-противников, чтобы они были всё сложнее со временем прохождения игры, также машинное обучение можно внедрить для всех ИИ-персонажей, чтобы враги и союзники были примерно на одном уровне.
+
+Спасибо за лабораторную работу, она была довольно-таки сложной, но очень интересной!
 
 | Plugin | README |
-| ------ | ------ |
+| —--— | —--— |
 | Dropbox | [plugins/dropbox/README.md][PlDb] |
 | GitHub | [plugins/github/README.md][PlGh] |
 | Google Drive | [plugins/googledrive/README.md][PlGd] |
