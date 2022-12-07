@@ -41,10 +41,10 @@
 ### Написать программы Hello World на Python и Unity.
 - Для Python в отчете привести скриншоты с демонстрацией сохранения документа google.colab на свой диск с запуском программы, выводящей сообщение Hello World.
 
- ![GoogleCollabe](https://user-images.githubusercontent.com/103362219/192449521-7a9d9cbf-9c8c-419d-8ab6-6f2952fd045a.png)
- 
- ![Диск](https://user-images.githubusercontent.com/103362219/192449660-553da15f-d5fa-456a-b4e5-06a3de686887.png)
- 
+![1](https://user-images.githubusercontent.com/120024952/206181436-480b60de-87e7-4eae-8934-81807d4b6a15.png)
+
+![2](https://user-images.githubusercontent.com/120024952/206181455-85b668ef-f689-4956-acea-a46fa1731de2.png)
+
 - Для Unity в отчете привести скриншоты вывода сообщения Hello World в консоль.
  
  ![UnityHelloWorld](https://user-images.githubusercontent.com/103362219/192449702-89f297d9-abda-448f-9eeb-9d1246a7b736.png)
