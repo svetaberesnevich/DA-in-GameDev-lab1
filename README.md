@@ -46,7 +46,7 @@
 В облачном сервисе google console подключить API для работы с google
 sheets и google drive.
 
-![1](https://user-images.githubusercontent.com/103362219/195162668-9c4eb7dc-a0bb-4ed6-93a3-200db4b7404e.png)
+![1](https://user-images.githubusercontent.com/120024952/206184903-e1aabc92-9845-4098-bf4a-c7bb89580b15.png)
 ![2](https://user-images.githubusercontent.com/103362219/195162681-04b40ed0-95a3-4670-91d9-c27e49e715ce.png)
 ![3](https://user-images.githubusercontent.com/103362219/195162711-538c5723-ddf7-4849-b7e7-d7d58c9a1293.png)
 ![4](https://user-images.githubusercontent.com/103362219/195162747-722cba6c-5def-4567-be2b-5874d20b82c1.png)
