@@ -67,7 +67,7 @@ y = np.array(y)
 plt.scatter(x,y)
 
 ```
-![2_1](https://user-images.githubusercontent.com/103362219/192523354-b128497e-690b-4e1f-94a0-8b8fb9460bab.png)
+![image](https://user-images.githubusercontent.com/120024952/206209214-76c4161e-f9a4-4d28-b75e-db65075f8b66.png)
 
 
 2. Функция модели: определяет модель линейной регрессии wx+b. Функция потерь: функция потерь среднеквадратичной ошибки. Функция оптимизации: метод градиентного спуска для нахождения частных производных w и b.
@@ -94,7 +94,7 @@ def iterate(a, b, x, y, times):
         a, b = optimize(a, b, x, y)
     return a, b
 ```
-![2_2](https://user-images.githubusercontent.com/103362219/192523417-4ee5b4d5-9eaa-4585-86c3-e0482d37facb.png)
+![image](https://user-images.githubusercontent.com/120024952/206209408-1dec3c9f-8eec-4d13-a610-f328d8230df7.png)
 3. Начать итерацию
 
   Шаг 1. Инициализация и модель итерактивной оптимизации
@@ -112,8 +112,7 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
-![2_3](https://user-images.githubusercontent.com/103362219/192523477-53488c0d-1a20-4e30-9440-d55fc67f0b76.png)
-
+![image](https://user-images.githubusercontent.com/120024952/206209524-f7136830-5b89-48a1-9f47-dbed30695ee6.png)
 Шаг 2. На второй итерации отображаются значения параметров, значения потерь и эффекты визуализации после итерации
 ```py
 a, b = iterate(a, b, x, y, 2)
@@ -123,7 +122,7 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
-![2_4](https://user-images.githubusercontent.com/103362219/192523511-316b9558-b41e-4598-893e-479591078958.png)
+![image](https://user-images.githubusercontent.com/120024952/206209634-0f09f00d-530a-482c-84a5-3d84ca6bf43b.png)
 
 Шаг 3. Третья итерация показывает значения параметров, значения потерь и эффекты визуализации после итерации
 ```py
@@ -134,7 +133,7 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
-![2_5](https://user-images.githubusercontent.com/103362219/192523553-f994400b-c15d-47f5-a823-cdd1e414a222.png)
+![image](https://user-images.githubusercontent.com/120024952/206209716-6280d275-b90b-4b1d-830b-80f7c6dc6c11.png)
 
 Шаг 4. На четвертой итерации отображаются значения параметров, значения потерь и эффекты визуализации
 ```py
@@ -145,7 +144,7 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
-![2_6](https://user-images.githubusercontent.com/103362219/192523590-b97127e3-2a49-48a6-bf3a-7280d3cb4041.png)
+![image](https://user-images.githubusercontent.com/120024952/206209835-1a27dcf6-704b-486a-b685-3fb33fe34294.png)
 
 Шаг 5. Пятая итерация показывает значения параметров, значения потерь и эффекты визуализации после итерации
 ```py
@@ -156,7 +155,7 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
-![2_7](https://user-images.githubusercontent.com/103362219/192523652-a88eb7f4-6ce7-4ca4-bb56-0a223de7b6a0.png)
+![image](https://user-images.githubusercontent.com/120024952/206209963-ba893076-1195-4edc-9c7c-5ff50db70263.png)
 
 Шаг 6. 10000-я итерация, показывающая значения параметров, потери и визуализацию после итерации
 ```py
@@ -167,8 +166,7 @@ print(a, b, loss)
 plt. scatter(x, y)
 plt. plot(x, prediction)
 ```
-![2_8](https://user-images.githubusercontent.com/103362219/192523687-9089addd-b15a-427c-89fb-41739a1bb0c6.png)
-
+![image](https://user-images.githubusercontent.com/120024952/206210043-3a77281f-a2c4-40b1-8cf6-d637a4f9c714.png)
 
 
 ## Задание 3
@@ -176,16 +174,16 @@ plt. plot(x, prediction)
 
 Параметр Lr определяет, как резко будет возрастать, либо же убывать график в зависимости от его значения.
 
-![2_9](https://user-images.githubusercontent.com/103362219/192588607-f6caee8e-c547-49da-986d-ee24dc3ef9c0.png)
-![2_10](https://user-images.githubusercontent.com/103362219/192588636-f875088a-ebf6-4fe8-a1d4-cc32697d82dc.png)
-![2_11](https://user-images.githubusercontent.com/103362219/192588656-6d9de998-437f-4c06-8793-578aaa7a3612.png)
-![2_12](https://user-images.githubusercontent.com/103362219/192588688-e404dbae-4904-40e9-a289-0e3b4711e561.png)
+![image](https://user-images.githubusercontent.com/120024952/206210191-01ced55c-feb0-44b4-aafb-5b854af4b130.png)
+![image](https://user-images.githubusercontent.com/120024952/206210268-21cd9819-38f9-4974-9dc0-7db29b5bac16.png)
+![image](https://user-images.githubusercontent.com/120024952/206210365-fac114ad-3c02-4c53-9d4a-67d0a90833a9.png)
+![image](https://user-images.githubusercontent.com/120024952/206210436-0f8d472c-85e5-447a-85cd-95d82bcf7312.png)
 
 ### Должна ли величина loss стремиться к нулю при изменении исходных данных? 
 Нет, не должна, это видно по построенному графику:
 
-![LOSS1](https://user-images.githubusercontent.com/103362219/192590834-619814f1-e08c-4dc3-9d11-e4ff307e3a14.png)
-![LOSS2](https://user-images.githubusercontent.com/103362219/192590847-fa9f424f-750a-4442-b683-1f2183bde3be.png)
+![image](https://user-images.githubusercontent.com/120024952/206210587-d8b248fe-91eb-49a7-a9b1-d8a2adff4815.png)
+![image](https://user-images.githubusercontent.com/120024952/206210694-5feef30b-80f8-436f-bee8-2ad0d9b9249f.png)
 
 ## Выводы
 
