@@ -61,7 +61,7 @@ sheets и google drive.
 - Создать новый проект на Unity, который будет получать данные из google-
 таблицы, в которую были записаны данные в предыдущем пункте.
 
-![7](https://user-images.githubusercontent.com/103362219/195162898-d30f18e5-17d1-4afa-9ead-55e78ccf36fe.png)
+![image](https://user-images.githubusercontent.com/120024952/206207798-e282a13f-4426-47a7-bf59-dc4c46ecdb13.png)
 ![9](https://user-images.githubusercontent.com/103362219/195163013-8882c2f0-b7b7-4674-92f7-5e75259b847d.png)
 
 - Написать функционал на Unity, в котором будет воспризводиться аудио-
